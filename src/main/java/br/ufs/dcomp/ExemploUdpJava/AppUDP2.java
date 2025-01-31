@@ -27,6 +27,19 @@ public class AppUDP2 {
             System.out.println("  Endereço de origem:   "+origin_address.getHostAddress());
             System.out.println("  Porta de origem:      "+origin_port);
             
+            String msg = "RECEBIII";
+            
+            byte[] msg_buf = msg.getBytes();
+            int msg_size = msg_buf.length;
+            
+            DatagramPacket packSend = new DatagramPacket(msg_buf, msg_size, origin_address, origin_port);
+            
+            System.out.println("\n[ Respondendo mensagem ..................  ]\n");
+            
+            System.out.println("[OK] ]");
+            
+            socket.send(packSend);
+            
         } catch (Exception e){
             System.out.println(e.getMessage());
         }    
